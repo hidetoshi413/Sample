@@ -1,0 +1,24 @@
+package jp.winschool.java.chapter6;
+
+public class Sample6_08 {
+
+	public static void main(String[] args) {
+		// TODO 引っ越し業者の料金表
+		
+		System.out.print("\t");
+				
+				for(int i=20; i<=200; i=i+20){
+					System.out.print(i+"kg"+"\t");
+					}
+				System.out.println("\n");
+				for(int j=10; j<=100; j=j+10) {
+					System.out.print(j+"km"+"\t");
+						
+				for(int b=20; b<=200; b=b+20) {
+					System.out.print((j*b*50)+"\t");
+				}
+				System.out.println("\n");
+				}
+	}
+}
+				
