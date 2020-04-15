@@ -1,0 +1,51 @@
+package jp.winschool.java.chapter7;
+
+public class Sample7_03 {
+
+	public static void main(String[] args) {
+		// TODO 多次元配列　成績の一覧表
+		int goukei[]= {0,0,0};
+		int test[][]= {
+				{64,60,73},{72,55,70},{48,58,83},{58,63,60},{79,83,62}};
+		
+		for(int i=0;i<test.length;i++) {
+			System.out.print((i+1)+"人目"+"\t");
+			
+			
+			for(int j=0;j<test[i].length;j++) {
+				switch(j) {
+				case 0:
+					System.out.print("英語");
+					break;
+				case 1:
+					System.out.print("数学");
+					break;
+				case 2:
+					System.out.print("国語");
+					break;
+				}
+				System.out.print(test[i][j]+"点\t");
+				goukei[j]+=test[i][j];
+			}
+			System.out.println("\n");
+		}
+		System.out.print("合計:\t"+"英語"+goukei[0]+"点\t");
+		System.out.print("数学"+goukei[1]+"点\t");
+		System.out.print("国語"+goukei[2]+"点\t");
+		System.out.print("\n");
+		System.out.print("平均:\t"+"英語"+(goukei[0]/test.length)+"点\t");
+		System.out.print("数学"+(goukei[1]/test.length)+"点\t");
+		System.out.print("国語"+(goukei[2]/test.length)+"点\t");
+		
+			
+			
+			
+		
+			
+			
+		
+		
+
+	}
+
+	}
