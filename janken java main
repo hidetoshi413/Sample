@@ -1,0 +1,25 @@
+package jannkenngame;
+
+
+
+public class Jnken1  {
+
+	public static void main(String[] args) {
+		Myhand myhand = new Myhand();//インスタンスの生成
+		//入力された引数が正しいかどうか判定する
+		if(!myhand.isParameter(args)) {
+			return;
+		}
+		//あいこかどうか判定する
+	if(myhand.isDraw()) {
+		myhand.displayDraw();
+		return;
+	}
+	//勝敗を判定する@param args
+	if(myhand.isBattle()) {
+		myhand.displaywin();
+	}else {
+		myhand.displayLose();
+	}
+		}
+	}
