@@ -1,0 +1,136 @@
+package jannkenngame;
+
+import java.util.Random;
+
+
+
+
+
+public class Myhand {
+	//ジャンケンの手
+	public static final int gu = 1;
+	public static final int pa = 2;
+	public static final int choki = 3;
+	
+	public static final String gu_HAND = "グー";
+	public static final String pa_HAND = "パー";
+	public static final String choki_HAND = "チョキ";
+	//表示される文
+	public static final String SIZE_CHECK = "入力してください";
+	public static final String INPUT_CHECK = "1から3の間で入力してください";
+	public static final String NUM_CHECK = "数字を入力してください";
+	public static final String MAN_INPUT = "人間が選んだ手";
+	public static final String MACHINE_INPUT = "相手が選んだ手";
+	public static final String DRAW_DISPLAY = "結果はあいこです";
+	public static final String WIN_DISPLAY = "結果はあなたの勝ちです"; 
+	public static final String LOSE_DISPLY = "結果はあなたのまけです";
+			
+			private int man = 0;//自分が選んだ手
+			
+			private int machine = 0;//相手が選んだ手
+			
+			//コンストラクタ
+			public Myhand () {
+				Random rndom = new Random();
+				this.machine = rndom .nextInt(3) + 1;
+			}
+			
+			/*
+			 * 引数が正しく入力されているか判定するメソッド
+			 * @param args コマンドライン引数の入力	
+			 */
+			
+		public boolean isParameter(String[] args) {
+			if (args == null || args.length == 0) {//コマンドライン引数が入力されているか確認
+				System.out.println(SIZE_CHECK);
+				return false;
+			}
+			//数字が入力されているか判定
+			try {
+				this.man = Integer.parseInt(args[0]);//文字列で渡された数値をJavaでの数字に変換
+			} catch (NumberFormatException e) {
+				System.out.println(NUM_CHECK);
+				return false;
+			}
+			//1～3までの数字を入力されているか判定
+			if(choki < this.man || gu > this.man) {
+			System.out.println(INPUT_CHECK);
+			return false;
+			
+		}
+			return true;
+}//あいこかどうか判定するメソッド
+  public boolean isDraw()  {
+	  if(this.man == this.machine) {
+		            return true;//あいこ
+	  }else {
+		              return false;//あいこではない
+	  }
+	
+  }
+  //あいこの時、何の手を出したか表示するメソッド
+  public void displayDraw() {
+	  if(this.man == choki) {
+		  System.out.println(MAN_INPUT + choki_HAND);
+		  System.out.println(MACHINE_INPUT + choki_HAND);
+		  
+	  }else if(this.man == pa) {
+		  System.out.println(MAN_INPUT + pa_HAND);
+		  System.out.println(MACHINE_INPUT + pa_HAND);
+		  
+	  }else {
+		System.out.println(MAN_INPUT + gu_HAND);
+		System.out.println(MACHINE_INPUT + gu_HAND);
+	}
+	  System.out.println(DRAW_DISPLAY);
+	  
+  }
+  //勝敗を判定するメソッド
+  public boolean isBattle() {
+	  if (this.man == choki && this.machine == pa) {
+		  return true;
+		  
+	  }else if(this.man == pa && this.machine == gu) {
+		  return true;
+		  
+	  }else if(this.man == gu && this.machine == choki){
+		  return true;
+		  
+	  }else {
+		return false;
+	}
+  }
+//勝ったとき何を出したか表示するメソッド
+  public void displaywin() {
+	  if(this.man == choki) {
+		  System.out.println(MAN_INPUT + choki_HAND);
+		  System.out.println(MACHINE_INPUT + pa_HAND);
+		  
+	  }else if(this.man == pa) {
+		  System.out.println(MAN_INPUT + pa_HAND);
+		  System.out.println(MACHINE_INPUT + pa_HAND);
+		  
+	  } else  {
+			  System.out.println(MAN_INPUT + gu_HAND);
+			  System.out.println(MACHINE_INPUT + choki_HAND);
+			
+		}
+		System.out.println(WIN_DISPLAY);
+	}
+  //負けた時　何の手を出したかを表示するメソッド
+	  public void displayLose() {
+		  if(this.man == choki) {
+			  System.out.println(MAN_INPUT + choki_HAND);
+			  System.out.println(MACHINE_INPUT + gu_HAND);
+			  
+		  }else if(this.man == pa) {
+			  System.out.println(MAN_INPUT + pa_HAND);
+			  System.out.println(MACHINE_INPUT + choki_HAND);
+			  
+		  }else {
+			  System.out.println(MAN_INPUT + gu_HAND);
+		      System.out.println(MACHINE_INPUT + pa_HAND);
+	  }
+	  System.out.println(LOSE_DISPLY);
+  }
+		}
